@@ -14,5 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+
+Route::get('/issue', function () {
+    return view('issue');
+});
+
+Route::post('/issue/submit', 'IssueController@submit' );
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
