@@ -22,8 +22,15 @@ Route::get('/issue', function () {
     return view('issue');
 });
 
-Route::post('/issue/submit', 'IssueController@submit' );
+Route::get('/issues/{id}', 'App\Http\Controllers\IssueController@getIssuesByCustomer')->name('issues');
+
+Route::get('/issues', 'App\Http\Controllers\IssueController@getIssues');
+
+Route::post('/issue/submit', 'App\Http\Controllers\IssueController@submit' );
+
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

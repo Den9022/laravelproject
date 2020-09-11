@@ -73,17 +73,16 @@
             </div>
         </nav>
 
-        <main class="py-4">
-        @if(count($errors) > 0)
-         @foreach($errors->all() as $error )
-            <div class="alert alert-danger">
-               {{error}}
-            </div>
-         @endforeach
-        @endif
-        @yield('content')
-
-        </main>
+        <div class="container">
+            @if(count($errors) > 0)
+            @foreach($errors->all() as $error )
+                <div class="alert alert-danger">
+                {{$error}}
+                </div>
+            @endforeach
+            @endif
+            @yield('content')
+        </div>
     </div>
 </body>
 </html>

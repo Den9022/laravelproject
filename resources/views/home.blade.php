@@ -2,8 +2,13 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Home!</h1>
-<a href="/issue">Submit issue></a>
+    <a class="text-center" href="/issue">Submit issue></a>
 @endsection
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{session('success')}}
+    </div>
+@endif
 
 

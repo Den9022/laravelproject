@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -9,7 +8,7 @@
 
                 <div class="card-body">              
 
-                        {!! Form::open(['url' => '/issue/submit']) !!}
+                        {!! Form::open(['url' => 'issue/submit']) !!}
                         <div class="form-group">
                             {{Form::label('name', 'Name')}}
                             {{Form::text('name', '', ['class' => 'form-control'])}}
@@ -40,5 +39,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection
