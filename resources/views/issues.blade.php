@@ -6,6 +6,10 @@
 
     <div class="col-lg-12">
     @if(count($issues) > 0)
+
+    <div class="row"><a href="{{ URL::route('issues_sorted',['sort'=>1]) }}">Sort by due date </a></div>
+
+    <div class="row"><a href="{{ URL::route('issues_sorted',['sort'=>2]) }}">Sort by created at </a></div>
     <div class="row">
             <table class="table table-bordered mb-5">
                 <thead>

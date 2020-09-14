@@ -22,6 +22,10 @@ Route::get('/issue', function () {
     return view('issue');
 });
 
+Route::get('issues/sort/{sort}', [
+    'as' => 'issues_sorted', 'uses' => 'App\Http\Controllers\IssueController@getIssues']);
+    
+
 Route::get('/issues/{id}', 'App\Http\Controllers\IssueController@getIssuesByCustomer')->name('issues');
 
 Route::get('/issues', 'App\Http\Controllers\IssueController@getIssues');

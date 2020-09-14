@@ -13,7 +13,11 @@ class IssueController extends Controller
         $this->validate($request, [
 
             'name' => 'required',
-            'email' => 'required'
+            'email' => 'required',
+            'title' => 'required',
+            'subject' => 'required',
+            'content' => 'required'
+
             ]);
         // Create a new issue
 
@@ -39,16 +43,21 @@ class IssueController extends Controller
 
     }
 
-    public function getIssues(){
+    public function getIssues($sort = 1){
 
-        $issues = Issue::paginate(1);
+        if($sort == 1){
+            $issues = Issue::orderBy('due_date', 'desc')->paginate(2);
+        }
+        if($sort == 2){
+            $issues = Issue::orderBy('created_at', 'asc')->paginate(2);
+        }
 
         return view('issues')->with('issues', $issues);
     }
 
-    public function getIssuesByCustomer($id){
+    public function getIssuesByCustomer($id){      
 
-        $issues = Issue::where('customer_id', $id)->paginate(1);
+        $issues = Issue::where('customer_id', $id)->paginate(2);
 
         return view('issues')->with('issues', $issues);
     }
