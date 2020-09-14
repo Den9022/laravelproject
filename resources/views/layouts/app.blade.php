@@ -81,7 +81,7 @@
                 </div>
             @endforeach
             @endif
-            @yield('content')
+            @yield('content')            
         </div>
     </div>
 </body>

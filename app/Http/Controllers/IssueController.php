@@ -41,14 +41,14 @@ class IssueController extends Controller
 
     public function getIssues(){
 
-        $issues = Issue::all();
+        $issues = Issue::paginate(1);
 
         return view('issues')->with('issues', $issues);
     }
 
     public function getIssuesByCustomer($id){
 
-        $issues = Issue::where('customer_id', $id)->get();
+        $issues = Issue::where('customer_id', $id)->paginate(1);
 
         return view('issues')->with('issues', $issues);
     }

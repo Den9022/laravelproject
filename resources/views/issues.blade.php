@@ -3,9 +3,10 @@
 
 @section('content')
 
-    <div class="container mt-5">
-    @if(count($issues) > 0)
 
+    <div class="col-lg-12">
+    @if(count($issues) > 0)
+    <div class="row">
             <table class="table table-bordered mb-5">
                 <thead>
                     <tr class="table-success">
@@ -31,7 +32,18 @@
                     </tr>
                     @endforeach
                 </tbody>
+
             </table>
-        </div>
+
+  
+
     @endif
+    </div>
+    <div class="col-lg-12">
+        <div class="row">
+        {{ $issues->links() }}
+
+        </div>
+    </div>
 @endsection
+
